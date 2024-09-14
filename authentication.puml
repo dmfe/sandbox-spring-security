@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+Filter -> Filter: Forms authentication\nrequest\n(Authentication)
+Filter -> "AuthenticationManager\n(ProviderManager)": authenticate(Authentication)
+"AuthenticationManager\n(ProviderManager)" -> AuthenticationProvider: authenticate(Authentication)
+AuthenticationProvider -> UserDetailsService: loadUserByUsername(username)
+UserDetailsService --> AuthenticationProvider: UserDetails
+AuthenticationProvider -> AuthenticationProvider: Handles authentication\nrequest
+AuthenticationProvider --> "AuthenticationManager\n(ProviderManager)": Authentication
+"AuthenticationManager\n(ProviderManager)" --> Filter: Authentication
+Filter -> Filter: Saves authentication\nresults in security context
+
+@enduml
