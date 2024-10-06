@@ -20,6 +20,10 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+
+    implementation("org.postgresql:postgresql")
+    implementation("org.testcontainers:postgresql:1.19.8")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
